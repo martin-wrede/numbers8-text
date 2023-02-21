@@ -6,7 +6,8 @@ import App from './App'
 import './index.css'
 
 
-const scale = 0.27;
+const scale = 0.27; // Gift object in foreground scaling
+
 let inputVar = false
 
 // If you want to parse the URL of current page in browser:
@@ -30,7 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    {inputVar && <Input2 age={age} title={title}    name={name} text={text}  />}
    {!inputVar && <Input />} 
   
-    <App scale={scale} modelPath={"/gift5.glb"} />  
+    <App age={age} scale={scale} modelPath={"/gift5.glb"} />  
     </>
   </React.StrictMode>
 )

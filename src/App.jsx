@@ -31,7 +31,7 @@ const CameraController = () => {
 
 
 
-export default function App({  modelPath, scale = 1, position = [0, 0, 0] , count = 15,  depth=60}) {
+export default function App({age,  modelPath, scale = 1, position = [0, 0, 0] , count = 15,  depth=60}) {
   
   return (
     <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 110, fov: 30  }}>
@@ -45,7 +45,7 @@ export default function App({  modelPath, scale = 1, position = [0, 0, 0] , coun
   
     <Environment preset="sunset" />
     {Array.from({ length: count}, (_,i) => (
-    <GltfNumber key={i} z={-(i / count) * depth - 20}
+    <GltfNumber  age={age} key={i} z={-(i / count) * depth - 20}
      scale={[0.55,0.55,0.55]}
     />
     ))}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { AmbientLightProbe } from "three";
-// import Task from "./components/Task";
 import "./index.css";
  
 
@@ -54,7 +53,7 @@ export default function Input(style2) {
     event.preventDefault();
      
     // const testUrl = `https://martin-wrede.github.io/numbers5-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
-    const testUrl = `http://localhost:3000/numbers5-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
+    const testUrl = `http://localhost:3000/numbers8-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
     window.location.href= testUrl;
     console.log(testUrl)
     

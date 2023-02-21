@@ -3,10 +3,10 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
- export default function GltfNumber({ z }) {
+ export default function GltfNumber({ z, age }) {
     const ref = useRef()
    // const  { nodes, materials } = useGLTF('/zahlen-gold-0-v1-exp.glb')
-    const  { nodes, materials } = useGLTF('/zahlen-gold-nr9-gruppe.glb')
+    const  { nodes, materials } = useGLTF(`/zahlen-gold-nr${age}-gruppe.glb`)
    
     // const  { nodes,materials } = useGLTF('/banana-skin-v1.glb')
     const { viewport, camera } = useThree()
@@ -28,7 +28,11 @@ import * as THREE from 'three'
     })
   
     return (
-      <mesh  ref={ref}   geometry={nodes.nr9.geometry}   material={materials.skin9}  rotation={[-Math.PI/2,0,0]} 
+      <mesh  ref={ref}   
+      geometry={eval(`nodes.nr${age}.geometry`)} 
+      material={eval(`materials.skin${age}`)}  
+      
+      rotation={[-Math.PI/2,0,0]} 
       scale={ 0.10}
      material-color="orange"
     material-emissive="orange" />

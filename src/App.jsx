@@ -32,19 +32,15 @@ const CameraController = () => {
 
 
 export default function App({age,  modelPath, scale = 1, position = [0, 0, 0] , count = 15,  depth=60}) {
- 
+  
+  //  if age not defined then give it a default value
+  age ? age : age=1
   const ageString = age.toString().split("")
   // defines first index number of the age array
   const age1 = ageString[0]
    // defines 2nd index number of the age array
   const age2 = ageString[1]
-
-  /*
-  if (ageString.length > 1){
-    console.log(ageString)
-     age2 = ageString[1]
-  }
-  */    
+ 
   
   return (
     <Canvas gl={{ alpha: false }} camera={{ near: 0.01, far: 110, fov: 30  }}>
@@ -57,12 +53,13 @@ export default function App({age,  modelPath, scale = 1, position = [0, 0, 0] , 
     <GltfModel modelPath={modelPath} scale={scale} position={position} />
   
     <Environment preset="sunset" />
-    {Array.from({ length: count}, (_,i) => (
+    { // if age1 is defined, the GltfNumber will be shown
+    age1 && Array.from({ length: count}, (_,i) => (
     <GltfNumber  age={age1} key={i} z={-(i / count) * depth - 20}
      scale={[0.55,0.55,0.55]}
     />
     ))}
-    { // if age2 is defined, the component will be shown
+    { // if age2 is defined, the GltfNumber will be shown
     age2 &&  Array.from({ length: count}, (_,i) => (
     <GltfNumber  age={age2} key={i+100} z={-(i / count) * depth - 20}
      scale={[0.55,0.55,0.55]}

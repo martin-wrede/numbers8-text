@@ -3,7 +3,7 @@ import { AmbientLightProbe } from "three";
 import "./index.css";
  
 
-export default function Input(style2) {
+export default function Input({childToParent}) {
 
       const  [ age, setAge ] = useState(1)
       const  [ name, setName ] = useState("Dear Iris")
@@ -29,6 +29,7 @@ export default function Input(style2) {
       const changeAge =(event)=>{
         const setAgeNew = event.target.value
         setAge(setAgeNew)
+        childToParent(setAgeNew) // send age number immediately to main.jsx
       }
       const changeTitle = (event)=>{
         const setTitleNew = event.target.value
@@ -52,8 +53,8 @@ export default function Input(style2) {
     const handleSubmit = (event) => {
     event.preventDefault();
      
-    // const testUrl = `https://martin-wrede.github.io/numbers5-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
-    const testUrl = `http://localhost:3000/numbers8-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
+     const testUrl = `https://martin-wrede.github.io/numbers8-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
+  //  const testUrl = `http://localhost:3000/numbers8-text/index.html?age=${age}&name=${name}&title=${title}&text=${text}`;
     window.location.href= testUrl;
     console.log(testUrl)
     

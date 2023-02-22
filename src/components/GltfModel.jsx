@@ -39,7 +39,7 @@ function Model({...props}) {
   
     //const { nodes, materials } = useGLTF("/cake-export5.glb");
    // const { nodes, materials } = useGLTF("/cake-export5.glb");
-   const { nodes, materials } = useGLTF("/gift9join.glb");
+   const { nodes, materials } = useGLTF("/gift5.glb");
       return (
         <group ref={group} {...props} dispose={null}>
         <mesh geometry={nodes.Plane012.geometry} 

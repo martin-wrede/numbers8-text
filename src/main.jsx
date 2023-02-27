@@ -5,7 +5,7 @@ import Input from './Input';
 import Input2 from './Input2';
 import './index.css';
 
-const scale = 0.27; // Gift object in foreground scaling
+ const scale = 0.27; // Gift object in foreground scaling
 let inputVar = false;
 
 // If you want to parse the URL of current page in browser:
@@ -20,22 +20,21 @@ let text = params.get('text');
 age && name && title || text ? (inputVar = true) : (inputVar = false);
 
 function Main() {
-  const [liveAge, setLiveAge] = useState(0);
 
-  const childToParent = (childdata) => {
+  const [liveAge, setLiveAge] = useState(1); // 
+
+  const childToParentAge = (childdata) => {
     setLiveAge(childdata);
-    console.log(liveAge)
+  //  console.log(liveAge)
   };
 
   return (
     <React.StrictMode>
       <>
         {inputVar && <Input2 age={age} title={title} name={name} text={text} />}
-        {!inputVar && <Input childToParent={childToParent} />}
+        {!inputVar && <Input childToParentAge={childToParentAge} />}
 
-        <App age={inputVar ? age : liveAge
-          
-          } scale={scale} modelPath={'/gift5.glb'} />
+        <App age={ inputVar ? age : liveAge } scale={scale} modelPath={'/gift5.glb'} />
       </>
     </React.StrictMode>
   );

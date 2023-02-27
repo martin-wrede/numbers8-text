@@ -6,9 +6,8 @@ import * as THREE from 'three'
  export default function GltfNumber({ z, age }) {
     const ref = useRef()
    // const  { nodes, materials } = useGLTF('/zahlen-gold-0-v1-exp.glb')
-    const  { nodes, materials } = useGLTF(`/zahlen-gold-nr${age}-gruppe.glb`)
-   
-    // const  { nodes,materials } = useGLTF('/banana-skin-v1.glb')
+    const  { nodes, materials } = useGLTF(`zahlen-gold-nr${age}-gruppe.glb`)
+
     const { viewport, camera } = useThree()
     const { width, height } = viewport.getCurrentViewport(camera, [0, 0, z])
     const [data] = useState({
@@ -29,9 +28,14 @@ import * as THREE from 'three'
   
     return (
       <mesh  ref={ref}   
-      geometry={eval(`nodes.nr${age}.geometry`)} 
-      material={eval(`materials.skin${age}`)}  
-      
+     // geometry={eval(`nodes.nr${age}.geometry`)} 
+    
+    // material={eval(`materials.skin${age}`)}  
+       
+     geometry={nodes[`nr${age}`].geometry}
+    material={materials[`skin${age}`]}
+
+     
       rotation={[-Math.PI/2,0,0]} 
       scale={ 0.10}
      material-color="orange"

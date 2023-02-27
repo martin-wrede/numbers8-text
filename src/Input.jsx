@@ -3,7 +3,7 @@ import { AmbientLightProbe } from "three";
 import "./index.css";
  
 
-export default function Input({childToParent}) {
+export default function Input({childToParentAge}) {
 
       const  [ age, setAge ] = useState(1)
       const  [ name, setName ] = useState("Dear Iris")
@@ -29,7 +29,7 @@ export default function Input({childToParent}) {
       const changeAge =(event)=>{
         const setAgeNew = event.target.value
         setAge(setAgeNew)
-        childToParent(setAgeNew) // send age number immediately to main.jsx
+        childToParentAge(setAgeNew) // send age number immediately to main.jsx
       }
       const changeTitle = (event)=>{
         const setTitleNew = event.target.value
@@ -85,7 +85,7 @@ export default function Input({childToParent}) {
                 <input defaultValue="Greetings from Anne" className="input"  onChange={changeText} /> 
             </div>
             
-            <div className="button1"  style={showDiv}>  
+            <div id="button-submit"  style={showDiv}>  
           <button className="button" type="submit">
           Submit
         </button>
@@ -93,7 +93,7 @@ export default function Input({childToParent}) {
         </div>
         
       </form>
-      <div id="button2">  
+      <div id="button-toggle">  
               <button  
               className="button"
                 onClick={()=>{

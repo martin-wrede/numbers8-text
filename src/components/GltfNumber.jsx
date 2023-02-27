@@ -29,17 +29,17 @@ import * as THREE from 'three'
     return (
       <mesh  ref={ref}   
      // geometry={eval(`nodes.nr${age}.geometry`)} 
-    
     // material={eval(`materials.skin${age}`)}  
        
-     geometry={nodes[`nr${age}`].geometry}
-    material={materials[`skin${age}`]}
+      geometry={nodes[`nr${age}`].geometry}
+      material={materials[`skin${age}`]}
 
      
       rotation={[-Math.PI/2,0,0]} 
       scale={ 0.10}
      material-color="orange"
-    material-emissive="orange" />
+     material-emissive="orange"
+     />
     )
   }
   

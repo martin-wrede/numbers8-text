@@ -23,13 +23,20 @@ export default function Input({childToParentAge}) {
       const toggleForms= (event)=> {
        // setShowForms(true) ? console.log("hallo") : console.log("nein")
         setShowForms(!showForms)
-      
       }
 
       const changeAge =(event)=>{
-        const setAgeNew = event.target.value
+       
+      const setAgeNew = event.target.value
+
+      //  console.log(setAgeNew.length)
+      // if (typeof setAgeNew === "number"){}
+      if (setAgeNew.length < 3){
         setAge(setAgeNew)
         childToParentAge(setAgeNew) // send age number immediately to main.jsx
+      }
+
+
       }
       const changeTitle = (event)=>{
         const setTitleNew = event.target.value
@@ -73,16 +80,20 @@ export default function Input({childToParentAge}) {
       <div className="meindiv" >
           <form onSubmit={handleSubmit}>
             <div className="meindiv2" id="id2"  style={showDiv}  >  
-                <input   defaultValue={age} className="input" onChange={changeAge} />  
+                <input type="number" 
+                defaultValue={age} 
+                name="age"
+                className="input"
+                onChange={changeAge} />  
             </div>
             <div className="meindiv3" id="id3"  style={showDiv}  >  
-                <input defaultValue="Happy Birthday" className="input" onChange={changeTitle} /> 
+                <input type="text" defaultValue="Happy Birthday" className="input" onChange={changeTitle} /> 
             </div>
             <div className="meindiv4" id="id4"  style={showDiv}  >  
-                <input defaultValue="Dear Iris" className="input" onChange={changeName} />  
+                <input type="text" defaultValue="Dear Iris" className="input" onChange={changeName} />  
             </div>
             <div className="meindiv5" id="id5"   style={showDiv}  >        
-                <input defaultValue="Greetings from Anne" className="input"  onChange={changeText} /> 
+                <input type="text" defaultValue="Greetings from Anne" className="input"  onChange={changeText} /> 
             </div>
             
             <div id="button-submit"  style={showDiv}>  
